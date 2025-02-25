@@ -1,0 +1,17 @@
+name: Conditional Workflow
+
+on: 
+    push:
+        paths:
+            - "backend/**"
+
+jobs:
+
+    conditional-workflow-job:
+        runs-on: windows-latest
+
+        steps:
+            - name: Build Backend Image
+              run: |
+                echo "Backend image building.!"
+                echo "Md. Sumon Sarder.!"
