@@ -1,0 +1,17 @@
+name: MainBranch Workflow
+
+on: 
+    push:
+        branches:
+            - main
+
+jobs:
+    first-workflow:
+        runs-on: windows-latest
+
+        steps:
+            - name: first step
+              run: |
+                echo "Hello World.!"
+                echo "Md. Sumon Sarder.!"
+
