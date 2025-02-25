@@ -1,0 +1,37 @@
+name: Dependents Multi Jobs Workflow
+
+on:
+    workflow_dispatch:
+
+jobs:
+
+    first-workflow-job:
+        runs-on: windows-latest
+
+        steps:
+            - name: first workflow job
+              run: |
+                echo "Hello first workflow job.!"
+                echo "Md. Sumon Sarder.!"
+
+    
+    second-workflow-job:
+        runs-on: windows-latest
+        needs: [first-workflow-job]
+
+        steps:
+            - name: second workflow job
+              run: |
+                echo "Hello second workflow job.!"
+                echo "Md. Sumon Sarder.!"
+
+
+    third-workflow-job:
+        runs-on: windows-latest
+        needs: [first-workflow-job, second-workflow-job]
+
+        steps:
+            - name: third workflow job
+              run: |
+                echo "Hello third workflow job.!"
+                echo "Md. Sumon Sarder.!"            
