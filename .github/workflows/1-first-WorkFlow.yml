@@ -1,4 +1,4 @@
-name: Sumon Workflow
+name: First Workflow
 
 on: [push]
 
