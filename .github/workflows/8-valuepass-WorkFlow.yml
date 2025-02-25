@@ -17,14 +17,15 @@ jobs:
     steps:
       - name: Generate Greeting Message
         id: generate-message
-        run: echo "message=Hello, ${{ github.event.inputs.name }}" >> $GITHUB_OUTPUT
+        run: echo "message=Hello, ${{ github.event.inputs.name }}" >> $GITHUB_ENV
+        shell: bash
 
   print-value-workflow-job:
     runs-on: windows-latest
     needs: [get-value-workflow-job]
 
     steps:
-      - name: Store Greeting Message (With Printing)
+      - name: Store Greeting Message (Without Printing)
         run: |
           MESSAGE="${{ needs.get-value-workflow-job.outputs.message }}"
-          echo "Generated Greeting: $MESSAGE"
+        shell: bash
