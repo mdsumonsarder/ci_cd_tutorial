@@ -10,7 +10,7 @@ jobs:
         runs-on: windows-latest
 
         steps:
-            - name: first step
+            - name: first mainbranch step
               run: |
                 echo "Hello World.!"
                 echo "Md. Sumon Sarder.!"
