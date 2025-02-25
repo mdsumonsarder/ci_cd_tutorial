@@ -12,20 +12,21 @@ jobs:
   get-value-workflow-job:
     runs-on: windows-latest
     outputs:
-      message: ${{ steps.generate-message.outputs.message }}
+      message: ${{ steps.generate-message.outputs.message }}  # Store output at job level
 
     steps:
       - name: Generate Greeting Message
         id: generate-message
-        run: echo "message=Hello, ${{ github.event.inputs.name }}" >> $GITHUB_ENV
-        shell: bash
+        run: echo "message=Hello, ${{ github.event.inputs.name }}" >> $GITHUB_OUTPUT
+        shell: bash  # Ensure compatibility
 
   print-value-workflow-job:
     runs-on: windows-latest
     needs: [get-value-workflow-job]
 
     steps:
-      - name: Store Greeting Message (Without Printing)
+      - name: Store Greeting Message (With Printing)
         run: |
           MESSAGE="${{ needs.get-value-workflow-job.outputs.message }}"
+          echo "Generated Greeting: $MESSAGE"  # Print the message
         shell: bash
