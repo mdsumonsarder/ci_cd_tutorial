@@ -1,0 +1,26 @@
+name: First Workflow
+
+on: 
+    push:
+        branches:
+            - main
+
+jobs:
+    first-workflow-job:
+        runs-on: windows-latest
+
+        steps:
+            - name: first step
+              run: |
+                echo "Hello first workflow job.!"
+                echo "Md. Sumon Sarder.!"
+
+    
+    second-workflow-job:
+        runs-on: windows-latest
+
+        steps:
+            - name: first step
+              run: |
+                echo "Hello second workflow job.!"
+                echo "Md. Sumon Sarder.!"            
