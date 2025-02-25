@@ -4,27 +4,27 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: "Enter Your Name: "
+        description: 'Enter your name'
         required: true
-        default: "Sumon"
+        default: 'Unnamed'
 
 jobs:
   get-value-workflow-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     outputs:
-      greeting_message: ${{ steps.generate-message.outputs.message }}
+      greetings_message: ${{ steps.generate-message.outputs.message }}
 
     steps:
-      - name: Generate Greeting Message
+      - name: Generate Greetings Message
         id: generate-message
         run: |
-            echo "message=Hello, ${{ github.event.inputs.name }}" >> $GITHUB_OUTPUT
-
+          echo "message=Hello, ${{ github.event.inputs.name }}!" >> $GITHUB_OUTPUT
+        
   print-value-workflow-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: [get-value-workflow-job]
 
     steps:
-      - name: Store Greeting Message
+      - name: Print Greetings Message
         run: |
-          echo "${{ needs.get-value-workflow-job.outputs.greeting_message }}"
+          echo "${{ needs.get-value-workflow-job.outputs.greetings_message }}"
