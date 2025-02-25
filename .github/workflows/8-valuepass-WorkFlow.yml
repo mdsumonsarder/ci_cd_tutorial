@@ -6,7 +6,7 @@ on:
       name:
         description: 'Enter your name'
         required: true
-        default: 'Unnamed'
+        default: 'Sumon'
 
 jobs:
   get-value-workflow-job:
